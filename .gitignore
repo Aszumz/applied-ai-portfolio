@@ -1,0 +1,12 @@
+# Keep local runtime and development files out of the showcase.
+.env
+.env.*
+*.pem
+*.key
+*.pfx
+*.p12
+*.log
+*.sqlite*
+*.db
+__pycache__/
+.venv/

@@ -1,0 +1,52 @@
+{
+  "workflows": {
+    "allowed_workspace": "sample-work",
+    "allowed_task": "verify-inventory",
+    "requests": [
+      {"workspace": "sample-work", "task": "verify-inventory", "checks_passed": true},
+      {"workspace": "shared-releases", "task": "publish-build", "checks_passed": true},
+      {"workspace": "sample-work", "task": "verify-inventory", "checks_passed": false}
+    ],
+    "expected": ["ready_for_review", "denied_scope", "needs_follow_up"]
+  },
+  "models": {
+    "allowed_provider": "offline-fixture",
+    "runs": [
+      {"provider": "offline-fixture", "latency_ms": 48, "checks_passed": false},
+      {"provider": "offline-fixture", "latency_ms": 93, "checks_passed": true},
+      {"provider": "alternate-fixture", "latency_ms": 27, "checks_passed": true}
+    ],
+    "expected": ["checks_failed", "eligible", "provider_denied"]
+  },
+  "desktop": {
+    "requests": [
+      {"action": "point", "accessible_matches": 0, "clickable_point": false, "screenshot_estimate": true},
+      {"action": "click", "accessible_matches": 0, "clickable_point": false, "screenshot_estimate": true},
+      {"action": "click", "accessible_matches": 2, "clickable_point": true, "screenshot_estimate": false},
+      {"action": "click", "accessible_matches": 1, "clickable_point": true, "screenshot_estimate": false}
+    ],
+    "expected": ["point_estimate", "click_denied_unverified", "ambiguous_target", "click_allowed"]
+  },
+  "voice": {
+    "events": [
+      {"action": "listen", "request": 1, "permission": false},
+      {"action": "listen", "request": 2, "permission": true},
+      {"action": "cancel", "request": 2},
+      {"action": "listen", "request": 3, "permission": true},
+      {"action": "complete", "request": 2},
+      {"action": "complete", "request": 3}
+    ],
+    "expected": ["permission_denied", "listening", "canceled", "listening", "ignored", "response_ready"]
+  },
+  "game": {
+    "offer": "paper-kite-stall",
+    "item": "paper-kite",
+    "price": 3,
+    "initial_save": {"coins": 8, "items": ["paper-kite"], "receipts": []},
+    "expected": {
+      "first_purchase": "purchased",
+      "after_reload": "sold_out",
+      "save": {"coins": 5, "items": ["paper-kite", "paper-kite"], "receipts": ["paper-kite-stall"]}
+    }
+  }
+}

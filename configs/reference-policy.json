@@ -1,0 +1,25 @@
+{
+  "example_only": true,
+  "agent": {
+    "role": "check-runner",
+    "workspace": "sample-work",
+    "task_allowlist": ["verify-inventory"],
+    "reviewer": "project-owner"
+  },
+  "local_inference": {
+    "transport": "fixture",
+    "provider": "offline-fixture",
+    "fallbacks": []
+  },
+  "permissions": {
+    "allow_publication": false,
+    "allow_device_actions": false,
+    "allow_external_messages": false
+  },
+  "voice": {
+    "activation": "push-to-talk",
+    "require_microphone_permission": true,
+    "retain_audio": false,
+    "discard_retired_requests": true
+  }
+}
