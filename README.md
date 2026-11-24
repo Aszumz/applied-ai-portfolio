@@ -50,6 +50,20 @@ Provider configuration, a recorded inference baseline, and a partial task run ar
 
 [Read the local inference case study](case-studies/local-inference.md)
 
+Skybreak Home Display
+
+An AI-assisted Android household hub with an offline chore board, photos, scheduled display sleep, and natural-language dashboard customization.
+
+I own the project and provide its household-use direction and review. Individual implementation changes are not independently attributed here.
+
+Selected source review supports change detection, validation, and dashboard recovery. Project records report device and workflow checks; those outcomes were not rerun for this showcase. Full voice-assistant conversation and physical reboot recovery remain unverified.
+
+[Read the Skybreak case study](case-studies/skybreak.md)
+
+![Skybreak's Codex customization panel with a sample meal-planner request.](media/skybreak-codex-customization.png)
+
+The captures use the actual interface with synthetic content in an isolated fixture. No Codex request was submitted. This showcase adds prose and screenshots; implementation code, device details, and household data remain private.
+
 Run the offline demonstrations
 
 From the repository root, with Python 3.10 or later:
